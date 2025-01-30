@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('assigned_to')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('assigned_to')->references('id')->on('users')
+                ->onDelete('set null');
+
+                
+            // TODO: Define what happen to tasks when author is removed
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')
                 ->onDelete('set null');
         });
     }
@@ -25,8 +31,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropColumn('user_id');
+            $table->dropForeign('assigned_to');
+            $table->dropColumn('assigned_to');
+
+            $table->dropForeign('created_by');
+            $table->dropColumn('created_by');
         });
     }
 };
