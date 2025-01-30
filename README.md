@@ -30,6 +30,8 @@ Ejecutar la aplicación Laravel
 php artisan serve
 ~~~
 
+La aplicación se levanta en la ruta local http://127.0.0.1:8000/
+
 ## Requerimientos de la aplicación
 
 **Objetivo**: Crear un sistema de gestión de tareas que permita a los usuarios crearlas, asignarlas a otros usuarios, actualizarlas y eliminarlas.
@@ -97,9 +99,9 @@ Respecto a la aplicación en general:
 
 ### Configuración de la base de datos
 
-- [ ] Definir tablas y migraciones (en plural)
-- [ ] Crear los modelos y factories
-- [ ] Implementar seeds para las tablas
+- [x] Definir tablas y migraciones (en plural)
+- [x] Crear los modelos y factories
+- [x] Implementar seeds para las tablas
 
 
 ## Deseable
@@ -114,4 +116,5 @@ Respecto a la aplicación en general:
 
 ## Consideraciones durante el desarrollo
 
-- Una tarea puede existir sin tener un usuario a cargo.
+- Una tarea puede existir sin tener un usuario a cargo
+- Cuando el usuario autor de una tarea es eliminado de la DB, la tarea sigue existiendo
