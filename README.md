@@ -12,6 +12,12 @@ Este proyecto se monta sobre XAMPP utilizando:
 
 ## Ejecución
 
+El entorno requiere instalación de módulos de node.
+
+~~~
+npm install
+~~~
+
 Para poblar la base de datos:
 
 ~~~sh
