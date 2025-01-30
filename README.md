@@ -111,3 +111,7 @@ Respecto a la aplicación en general:
 
 - [ ] Documentar APIs con Swagger
 - [ ] Crear colecciones de requests
+
+## Consideraciones durante el desarrollo
+
+- Una tarea puede existir sin tener un usuario a cargo.
