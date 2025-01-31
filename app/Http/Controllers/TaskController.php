@@ -27,7 +27,7 @@ class TaskController extends Controller
      */
     public function create(Request $request)
     {
-        
+        return view("tasks.create");
     }
 
     /**
@@ -35,7 +35,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        # TODO: Get the user identification for this
+        $taskAttributes = $request->validate([
+            "title" => ["required"],
+            "description" => ["required"],
+            "due_date" => ["required", "date"],
+        ]);
+
+        $taskAttributes["created_by"] = 1;
+        $task = Task::create($taskAttributes);
+
+        return redirect("/tasks");
     }
 
     /**

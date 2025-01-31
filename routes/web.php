@@ -11,6 +11,9 @@ Route::get('/', function () {
 });
 
 Route::get('/tasks', [TaskController::class, "index"]);
+Route::get('/tasks/create', [TaskController::class, "create"]);
+Route::post('/tasks/create', [TaskController::class, "store"]);
+
 Route::get('/users', [UserController::class, "index"]);
 
 Route::get('/dashboard', function () {

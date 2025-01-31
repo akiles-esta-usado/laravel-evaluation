@@ -29,7 +29,7 @@
                 </div>
 
                 <div>
-                    <a href="#">Post a Task</a>
+                    <a href="/tasks/create">Post a Task</a>
                 </div>
             </nav>
 
