@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('status', ['pending', 'in progress', 'completed'])->default("pending");
             $table->dateTime('due_date');
             $table->foreignIdFor(User::class, "created_by");
-            $table->foreignIdFor(User::class, "assigned_to");
+            $table->foreignIdFor(User::class, "assigned_to")->nullable();
             $table->timestamps();
         });
     }

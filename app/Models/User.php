@@ -51,6 +51,11 @@ class User extends Authenticatable
      * Relation with Tasks
      */
     public function assigned_tasks(): HasMany {
-        return $this->hasMany(Task::class);
+        // Always get assigned tasks
+        return $this->hasMany(Task::class, foreignKey: "assigned_to")->chaperone();
+    }
+
+    public function created_tasks(): HasMany {
+        return $this->hasMany(Task::class, foreignKey: "created_by");
     }
 }

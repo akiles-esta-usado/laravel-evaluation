@@ -14,8 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->create()->each(function ($user) {
-            Task::factory(3)->create(['created_by' => $user->id]);
-        });
+        $users = User::factory(5)->create();
+        $tasks = Task::factory(15)->recycle($users)->create();
     }
 }

@@ -26,8 +26,7 @@ class TaskFactory extends Factory
             'due_date' => now()->addDays(10)->toDateString(),
             'created_at' => now(),
             'updated_at' => now(),
-            'assigned_to' => User::inRandomOrder()->first()->id,
-            'created_by' => User::inRandomOrder()->first()->id,
+            'created_by' => User::factory(),
         ];
     }
 }
