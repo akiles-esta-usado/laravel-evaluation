@@ -16,9 +16,9 @@ class TaskController extends Controller
         $tasks = Task::all()->groupBy("status");
         return view("tasks.index", [
             "tasks" => Task::all(),
-            "pending_tasks" => $tasks["pending"],
-            "in_progress_tasks" => $tasks["in progress"],
-            "completed_tasks" => $tasks["completed"],
+            "pending_tasks" => $tasks["pending"] ?? null,
+            "in_progress_tasks" => $tasks["in progress"] ?? null,
+            "completed_tasks" => $tasks["completed"] ?? null,
         ]);
     }
 
