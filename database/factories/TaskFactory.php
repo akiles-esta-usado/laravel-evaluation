@@ -23,7 +23,6 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->word(),
             'description' => $this->faker->sentence(),
-            'status' => 'pending',
             'due_date' => now()->addDays(10)->toDateString(),
             'created_at' => now(),
             'updated_at' => now(),

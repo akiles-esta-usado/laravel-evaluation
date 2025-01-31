@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +16,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->enum('status', ['pending', 'in progress', 'completed']);
+            $table->enum('status', ['pending', 'in progress', 'completed'])->default("pending");
             $table->dateTime('due_date');
+            $table->foreignIdFor(User::class, "created_by");
+            $table->foreignIdFor(User::class, "assigned_to");
             $table->timestamps();
         });
     }
