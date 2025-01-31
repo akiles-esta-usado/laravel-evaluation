@@ -7,17 +7,25 @@ use App\Models\Task;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect("/tasks");
 });
 
-Route::get('/tasks', [TaskController::class, "index"]);
-Route::get('/tasks/create', [TaskController::class, "create"]);
-Route::post('/tasks/create', [TaskController::class, "store"]);
+Route::middleware("guest")->group(function() {
+    Route::get('/tasks', [TaskController::class, "index"]);
+});
+
+Route::middleware("auth")->group(function() {
+    Route::get('/tasks', [TaskController::class, "index"]);
+    Route::get('/tasks/create', [TaskController::class, "create"]);
+    Route::post('/tasks/create', [TaskController::class, "store"]);
+});
 
 Route::get('/users', [UserController::class, "index"]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
+    // return redirect("/tasks");
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

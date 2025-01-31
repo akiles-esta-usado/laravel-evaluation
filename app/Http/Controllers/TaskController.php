@@ -42,7 +42,7 @@ class TaskController extends Controller
             "due_date" => ["required", "date"],
         ]);
 
-        $taskAttributes["created_by"] = 1;
+        $taskAttributes["created_by"] = auth()->id();
         $task = Task::create($taskAttributes);
 
         return redirect("/tasks");

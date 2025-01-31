@@ -30,7 +30,13 @@ Ejecutar la aplicación Laravel
 php artisan serve
 ~~~
 
-La aplicación se levanta en la ruta local http://127.0.0.1:8000/
+### Rutas
+
+Considerando que la aplicación se levanta en el puerto 8000 de localhost, las rutas implementadas son las siguientes
+
+* `/profile` con un formulario con datos del usuario
+* `/tasks` muestra las tareas registradas en el sistema
+* `/users` Muestra a los usuarios registrados del sistema
 
 ## Requerimientos de la aplicación
 
@@ -106,7 +112,7 @@ Respecto a la aplicación en general:
 
 ## Deseable
 
-- [ ] Pruebas Unitarias
+- [.] Pruebas Unitarias
 - [ ] Implementar criterios de Seguridad (Revisar OWASP)
 
 ## Lujito
@@ -116,5 +122,6 @@ Respecto a la aplicación en general:
 
 ## Consideraciones durante el desarrollo
 
-- Una tarea puede existir sin tener un usuario a cargo
-- Cuando el usuario autor de una tarea es eliminado de la DB, la tarea sigue existiendo
+- Una tarea puede existir sin tener un usuario a cargo.
+- Cuando el usuario autor de una tarea es eliminado de la DB, la tarea sigue existiendo.
+- No se ha implementado comportamiento para tareas que ya expiraron, ni que sean anteriores al momento de registro.

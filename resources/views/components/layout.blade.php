@@ -26,11 +26,22 @@
                 <div class="space-x-6 font-bold">
                     <a href="/tasks">Tasks</a>
                     <a href="/users">Users</a>
+                    <a href="/profile">User Profile</a>
                 </div>
 
-                <div>
-                    <a href="/tasks/create">Post a Task</a>
-                </div>
+                @auth
+                    <div>
+                        <a href="/tasks/create">Post a Task</a>
+                    </div>
+                @endauth
+
+                @guest
+                    <div class="space-x-6 font-bold">
+                        <a href="/register">Registrarse</a>
+                        <a href="/login">Log In</a>
+                    </div>
+                @endguest
+
             </nav>
 
             <main class="mt-10 max-w-[1000px] mx-auto">
