@@ -18,12 +18,17 @@ it("can be unassigned", function() {
 });
 
 
-// it("can be assigned", function() {
-//     $task = Task::factory()->create();
+it("can be assigned", function() {
+    $task = Task::factory()->create();
+    $user = User::factory()->create();
 
-//     $user = User::factory()->create();
+    $task->assignTo($user);
 
-//     $task->assign_to($user);
-    
-//     expect($task->assigned_to == $user->id)->toBeTrue();
-// });
+    $updated_task = $task->fresh();
+    $updated_user = $user->fresh();
+
+    expect($updated_user->assigned_tasks[0]->is($updated_task))->toBeTrue();
+    expect($updated_task->assigned_user->is($updated_user))->toBeTrue();
+
+    // expect($updated_task->assignedUser->is($user))->toBeTrue();
+});

@@ -26,7 +26,7 @@ class Task extends Model
         'due_date' => 'datetime',
     ];
 
-    public function assignedUser(): BelongsTo
+    public function assigned_user(): BelongsTo
     {
         return $this->belongsTo(User::class, "assigned_to");
     }
@@ -36,7 +36,13 @@ class Task extends Model
         return $this->belongsTo(User::class, "created_by");
     }
 
-    public function assign_to(User $user)
+    /**
+     * Registers an user as the responsible for the task
+     * @param \App\Models\User $user
+     * @return void
+     */
+    public function assignTo(User $user)
     {
+        $user->assigned_tasks()->save($this);
     }
 }

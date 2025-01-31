@@ -48,11 +48,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Eager load some attributes
+     */
+    protected $with = ["assigned_tasks"];
+
+    /**
      * Relation with Tasks
      */
     public function assigned_tasks(): HasMany {
         // Always get assigned tasks
-        return $this->hasMany(Task::class, foreignKey: "assigned_to")->chaperone();
+        return $this->hasMany(Task::class, foreignKey: "assigned_to");
     }
 
     public function created_tasks(): HasMany {
