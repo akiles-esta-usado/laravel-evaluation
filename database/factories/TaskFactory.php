@@ -23,7 +23,7 @@ class TaskFactory extends Factory
         return [
             'title' => fake()->jobTitle(),
             'description' => fake()->sentence(),
-            'due_date' => now()->addDays(10)->toDateString(),
+            'due_date' => now()->addDays(rand(1,10))->toDateString(),
             'created_at' => now(),
             'updated_at' => now(),
             'created_by' => User::factory(),
