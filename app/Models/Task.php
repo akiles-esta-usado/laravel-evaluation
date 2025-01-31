@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Task extends Model
 {
@@ -26,13 +26,13 @@ class Task extends Model
         'due_date' => 'datetime',
     ];
 
-    public function assignedUser()
+    public function assignedUser(): HasOne
     {
-        return $this->belongsTo(User::class, "assigned_to");
+        return $this->hasOne(User::class, "assigned_to");
     }
 
-    public function author()
+    public function author(): HasOne
     {
-        return $this->belongsTo(User::class, "created_by");
+        return $this->hasOne(User::class, "created_by");
     }
 }

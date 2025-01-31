@@ -21,8 +21,8 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
+            'title' => fake()->jobTitle(),
+            'description' => fake()->sentence(),
             'due_date' => now()->addDays(10)->toDateString(),
             'created_at' => now(),
             'updated_at' => now(),
