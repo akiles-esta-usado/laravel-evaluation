@@ -24,13 +24,12 @@
                 </div>
 
                 <div class="space-x-6 font-bold">
-                    <a href="#">Jobs</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Salaries</a>
+                    <a href="/tasks">Tasks</a>
+                    <a href="/users">Users</a>
                 </div>
 
                 <div>
-                    <a href="">Post a Job</a>
+                    <a href="#">Post a Task</a>
                 </div>
             </nav>
 

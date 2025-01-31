@@ -1,3 +1,5 @@
+@props(['task'])
+
 <x-panel class="flex flex-col text-center">
     <p class="self-start text-sm">{{$task->status}}</p>
 

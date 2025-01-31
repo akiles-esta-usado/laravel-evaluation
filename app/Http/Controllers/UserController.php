@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use Illuminate\Contracts\View\View;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
-class TaskController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $tasks = Task::all()->groupBy("status");
-        return view("tasks.index", [
-            "tasks" => Task::all(),
-            "pending_tasks" => $tasks["pending"],
-            "in_progress_tasks" => $tasks["in progress"],
-            "completed_tasks" => $tasks["completed"],
+        return view("users.index", [
+            "users" => User::all()
         ]);
     }
 
@@ -41,7 +37,7 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Task $task)
+    public function show(User $user)
     {
         //
     }
@@ -49,7 +45,7 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Task $task)
+    public function edit(User $user)
     {
         //
     }
@@ -57,7 +53,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -65,7 +61,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(User $user)
     {
         //
     }
